@@ -109,6 +109,8 @@ def _track_queues(tick_rate, redis, queues):
                 value = redis.zcard(key)
             elif key_type == 'set':
                 value = redis.scard(key)
+            elif key_type == 'list':
+                value = redis.llen(key)
             elif key_type == 'string':
                 value = redis.get(key)
             else:
