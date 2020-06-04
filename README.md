@@ -2,9 +2,10 @@
 
 Cli tool that redirect redis key values to stdout and/or [prometheus](http://prometheus.io)
 
-    $ redis-tracker set zset text --prometheus 9090
+    $ redis-tracker set zset text list --prometheus 9090
     sending stats to prometheus: localhost:9090
     set                                                       84
+    list                                                      57
     zset                                                      19
     text                                                  hello!
 
@@ -22,7 +23,7 @@ The example above would produce these prometheus stats:
     
 In other words:
     
-* `sets` produce gauges that track their length
+* `sets` and `lists` produce gauges that track their length
 * `zsets` same as sets
 * `string` produces `info`
 
